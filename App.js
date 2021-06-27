@@ -6,6 +6,7 @@ import FoodScreen from './screens/FoodScreen'
 import HappyScreen from './screens/HappyScreen'
 import WalkScreen from './screens/WalkScreen'
 import HomeScreen from './screens/HomeScreen'
+import VaccinationScreen from './screens/VaccinationScreen'
 
 export default class App extends React.Component {
   render(){
@@ -21,6 +22,7 @@ var switchNavigator = createSwitchNavigator({
   HappyScreen: HappyScreen,
   WalkScreen: WalkScreen,
   BathScreen: BathScreen,
+  VaccinationScreen: VaccinationScreen
 })
 
 const AppContainer = createAppContainer(switchNavigator)

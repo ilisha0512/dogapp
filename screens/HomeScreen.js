@@ -1,18 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView, ImageBackground } from 'react-native';
 import BathScreen from '../screens/BathScreen'
 import FoodScreen from '../screens/FoodScreen'
 import HappyScreen from '../screens/HappyScreen'
 import WalkScreen from '../screens/WalkScreen'
+import VaccinstionScreen from '../screens/VaccinationScreen'
 
 export default class HomeScreen extends React.Component {
   render(){
   return (
     <View style={styles.container}>
-      <Text style = {styles.title}>Dog App</Text>
+      <ImageBackground source = {require("../assets/PuppyCollage.jpeg")}
+      style = {{flex: 1, resizeMode: "cover"}}>
+      <ScrollView>
+      <Text style = {styles.title}>Dog Tips: The basic guide to take care of your pup!</Text>
       <Image
       source = {require("../assets/DogGif.gif")}
-      style = {{width: 300, height: 300, alignSelf: "center", marginTop: 50}}
+      style = {{width: 300, height: 300, alignSelf: "center", marginTop: 50, borderRadius: 150}}
       />
       <TouchableOpacity style = {styles.button} onPress = {
         ()=>{
@@ -47,6 +51,16 @@ export default class HomeScreen extends React.Component {
               Tips for taking you dog for a walk!
           </Text>
       </TouchableOpacity>
+      <TouchableOpacity  style = {styles.button} onPress = {
+        ()=>{
+          this.props.navigation.navigate("VaccinationScreen")
+        }}>
+          <Text style={styles.buttonText}>
+              Vaccinations for your dog
+          </Text>
+      </TouchableOpacity>
+      </ScrollView>
+      </ImageBackground>
     </View>
   )}
 }
@@ -55,14 +69,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    marginTop: 10,
   },
 
   title: {
       fontWeight: "bold",
-      fontSize: 50,
+      fontSize: 40,
       alignSelf: "center",
       textAlign: "center",
       justifyContent: "center",
+      color: "white"
   },
 
   button: {
@@ -83,4 +99,5 @@ const styles = StyleSheet.create({
       fontWeight: "bold",
       alignSelf: "center",
   },
+
 });
